@@ -1,3 +1,53 @@
+# Foto do Projeto
+    INICIO
+<img src="fotoDoProjeto1.PNG" width="800" /> 
+
+    Favorito
+<img src="fotoDoProjeto2.PNG" width="800" /> 
+
+    POST/1
+<img src="fotoDoProjeto3.PNG" width="800" /> 
+# Rotas aninhamento - dinamico
+
+# My JSON server
+
+criar um arquivo json
+
+    https://my-json-server.typicode.com/
+
+
+pesquisa
+
+        useEffect(()=>{
+            fetch(
+            `https://my-json-server.typicode.com/italo-lopes/banco-tela-cinema/video?id=${param.id}`
+            ).then(
+                res=>res.json()
+            ).then(
+                res=>{setVideo(...res)}
+            )
+        },[param.id])
+
+
+
+busca geral
+
+            const [video,setVideo] = useState([])
+
+            useEffect(()=>{
+                fetch('https://my-json-server.typicode.com/italo-lopes/banco-tela-cinema/video')
+                .then(resp=>resp.json()).then(resp=>{
+                    setVideo(resp)
+                })
+            },[])
+
+# OBJ
+
+    Fazer upload de um protótipo de API no Github;
+
+    Hospedar o protótipo de API no My Json Server;
+
+    Consumir APIs com o FetchAPI;
 # Dependecias
 
     npm install react-router-dom@6

@@ -1,3 +1,93 @@
+# Dependecias
+
+    npm install react-router-dom@6
+
+pagina public --- imagem dinamica 
+
+src ou na proria  pasta resto estatico
+
+ponto em comum pros diretorio
+
+        {
+            "compilerOptions": {
+                "baseUrl": "src"
+            },
+            "include": [
+                "src"
+            ]
+        }
+
+
+como usar link dinamicos
+
+import { NavLink, useLocation } from 'react-router-dom';
+
+            const MenuLink = ({children, path}) => {
+                //const localizar = useLocation()
+                console.log(children)
+                return (
+                    <NavLink 
+                    className={({ isActive }) => `
+                    ${style.link}
+                    ${isActive ? style.linkDestacado : ""}
+                        `}
+                        to={path}
+                        end
+                    > 
+                        {children}
+                    </NavLink>
+                );
+            }
+            
+            export default MenuLink;
+
+
+principal 
+
+        <NavLink className={({isActive})=> `${styles.link}  ${isActive? styles.ativo : ''}` } to={path} end>
+            {children}
+        </NavLink>
+
+# Logicas usadas
+
+--basico
+
+        some() verifica se alguem passa nas consdiçoes 
+        ages.some(checkAdult);
+
+        splice
+        novalista.splice(novaLisata.indexOf(novoFavorito),1) remove um elemento no index 
+        
+        const pega  = [...oficial]
+        pega.push(novoFavorito) 
+
+
+# Rotas
+
+rotas dinamicas
+
+         <Route path="/player/:id" element={<Player/>}> </Route>
+
+
+
+rotads aninhada
+
+                <Route path="/" element={<PaginaBase/>}>
+                    <Route path="/" element={<Inicio/>}></Route>
+                    <Route path="/favorito" element={<Favorito/>}></Route>
+                    <Route path="/home" element={<Inicio/>}></Route>
+                    <Route path="/player/:id" element={<Player/>}> </Route>
+                    <Route path="/*" element={<NaoEncontrada/>}> </Route>
+                </Route>
+
+         <Cabecalho/>
+         <FavoritoProvider>
+            <Container>
+                <Outlet/>
+            </Container>
+         </FavoritoProvider>
+          <Rodape/>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
